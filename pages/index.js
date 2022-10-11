@@ -25,7 +25,7 @@ import { createClient } from '../prismicio';
 
 // pages/index.js
 
-async function getStaticProps() {
+export async function getStaticProps() {
 	// Client used to fetch CMS content.
 	const client = createClient();
 
@@ -37,8 +37,6 @@ async function getStaticProps() {
 		props: { page },
 	};
 }
-
-getStaticProps();
 
 export default function Home({ page }) {
 	const [darkMode, setDarkMode] = useState(false);
