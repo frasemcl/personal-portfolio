@@ -20,25 +20,23 @@ import headshot from '../public/headShot.jpg';
 import trees from '../public/000060360005_small.jpg';
 import Link from 'next/link';
 import { useState } from 'react';
-import { PrismicText, PrismicRichText } from '@prismicio/react';
-import { createClient } from '../prismicio';
+// import { PrismicText, PrismicRichText } from '@prismicio/react';
+// import { createClient } from '../prismicio';
 
 // pages/index.js
 
-async function getStaticProps() {
-	// Client used to fetch CMS content.
-	const client = createClient();
+// export async function getStaticProps() {
+// 	// Client used to fetch CMS content.
+// 	const client = createClient();
 
-	// Page document for our homepage from the CMS.
-	const page = await client.getByUID('page', 'home');
+// 	// Page document for our homepage from the CMS.
+// 	const page = await client.getByUID('page', 'home');
 
-	// Pass the homepage as prop to our page.
-	return {
-		props: { page },
-	};
-}
-
-getStaticProps();
+// 	// Pass the homepage as prop to our page.
+// 	return {
+// 		props: { page },
+// 	};
+// }
 
 export default function Home({ page }) {
 	const [darkMode, setDarkMode] = useState(false);
@@ -107,15 +105,15 @@ export default function Home({ page }) {
 							<h2 className="text-3xl py-2 font-medium font-custom1 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-fuchsia-700 md:text-6xl">
 								Fraser McLaughlin
 							</h2>
-							<h3 className="text-xl py-2 font-custom1 md:text-3xl">
-								<PrismicText field={page.data.greeting} />
-							</h3>
 							{/* <h3 className="text-xl py-2 font-custom1 md:text-3xl">
-								{t('skills')}
+								<PrismicText field={page.data.greeting} />
 							</h3> */}
+							<h3 className="text-xl py-2 font-custom1 md:text-3xl">
+								{t('skills')}
+							</h3>
 							<p className="text-md py-3 leading-7 text-gray-800 md:text-xl max-w-xl mx-auto dark:text-gray-200">
-								{/* {t('headline')} */}
-								<PrismicText field={page.data.description} />
+								{t('headline')}
+								{/* <PrismicText field={page.data.description} /> */}
 							</p>
 						</div>
 						<div className=" text-3xl flex justify-center gap-12 text-gray-600 md:text-5xl dark:text-gray-200">
